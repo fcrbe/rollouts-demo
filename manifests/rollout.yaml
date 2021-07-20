@@ -12,25 +12,25 @@ spec:
       canaryService: rollout-demo-canary
       stableService: rollout-demo
       steps:
-      - setWeight: 10
-      - pause:
-          duration: 10
+        - setWeight: 10
+        - pause:
+            duration: 10
       trafficRouting:
         ambassador:
           mappings:
-          - rollout-demo-mapping
+            - rollout-demo-mapping
   template:
     metadata:
       labels:
         app: rollout-demo
     spec:
       containers:
-      - args:
-        - -text=VERSION 1
-        - -listen=:8080
-        image: hashicorp/http-echo:0.2.1
-        imagePullPolicy: Always
-        name: echo-v1
-        ports:
-        - containerPort: 8080
-        resources: {}
+        - args:
+            - -text=VERSION 1
+            - -listen=:8080
+          image: hashicorp/http-echo:0.2.3
+          imagePullPolicy: Always
+          name: echo-v1
+          ports:
+            - containerPort: 8080
+          resources: {}
