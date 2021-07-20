@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
         - args:
-            - -text=VERSION 1
+            - -text=VERSION 2
             - -listen=:8080
           image: hashicorp/http-echo:0.2.3
           imagePullPolicy: Always
